@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- CSS BEGIN -->
+    <link rel="stylesheet" type="text/css" href="./css/all.css">
+    <!-- CSS END -->
+    <!-- JS BEGIN -->
+    <script type="text/javascript" src="./js/jquery-2.1.3.js"></script>
+    <!--<script type="text/javascript" src="./public/3rdLibs/layer/v1.9.3/layer.js"></script>-->
+    <!--<script type="text/javascript" src="./public/3rdLibs/mustache/v2.2.1/mustache.min.js"></script>-->
+    <script type="text/javascript" src="./js/all.js"></script>
+    <!-- JS END -->
+</head>
+<body>
+
+<div class="header clearfix">
+    <div class="header-info">
+        <a href="#" class="header-name">xxx</a>
+        <a href="../www/index.html" class="header-logout">注销</a>
+    </div>
+    <div class="header-title">我的管理平台</div>
+</div>
+<div class="nav">
+    <ul class="clearfix">
+        <li id="js-nav-c1"><a href="./index.html">互动课件</a></li>
+        <li id="js-nav-c2"><a href="./material.html">透明按钮功能</a></li>
+        <li id="js-nav-c3"><a href="./materialDefectList.html">缺失按钮功能清单</a></li>
+        <li id="js-nav-c4"><a href="./wallet.html">我的钱包</a></li>
+    </ul>
+</div>
+
+
+<div class="container page-bookPagePosition">
+
+    <div class="page-bookPagePosition-table">
+        <h2 class="title-01 page-bookPagePosition-title">页码添加透明按钮功能</h2>
+
+        <div class="page-bookPagePosition-title-tips">（红框内请填写功能名，可以在右侧搜索有哪些功能。）</div>
+        <table id="postab" class="table table-bordered vv-tab-bg"
+               style="width:640px;height:360px;background-repeat:no-repeat;filter:alpha(opacity=80);-moz-opacity:0.8;background-position:center center;background-size:contain;">
+            <tbody>
+
+
+            <!--动态创建-->
+
+
+            </tbody>
+        </table>
+        <div class="page-bookPagePosition-table-button">
+            <button type="submit" class="button-01">保存</button>
+            <button type="button" class="button-01">返回</button>
+        </div>
+    </div>
+    <!-- .page-bookPagePosition-table end -->
+
+
+    <!--mp4 botton S-->
+
+
+    <div class="page-bookPagePosition-list vv-borderSide" id="mp4" style="display:none; margin-top: 70px">
+        <span>请选择按钮出现的时间</span><em>：</em>
+        <input type="text" style="width:30px;" placeholder="小时"/>:
+        <input type="text" style="width:30px;" placeholder="分钟"/>
+
+        <input id="duration" class="button-01" type="button" value="添加"/>
+    </div>
+    <!--mp4 botton E-->
+
+    <!--botton count S-->
+    <div class="page-bookPagePosition-list vv-borderSide">
+        <span>请选择按钮数量</span><em>：</em>
+        <input id="fAndS" class="button-01" type="button" value="5*7"/>
+        <input id="tAndFteen" class="button-01" type="button" value="10*14"/>
+        <input id="clearBtn" class="button-01" type="button" value="清除全部按钮"/>
+    </div>
+    <!--botton count E-->
+
+
+    <!--type btn s-->
+    <div class="page-bookPagePosition-list vv-borderSide">
+        <span>按钮类型</span><em>：</em>
+        <input id="addType1" class="button-01" type="button" value="type1" name="type1"/>
+        <input id="addType2" class="button-01" type="button" value="type2" name="type2"/>
+        <input id="addType3" class="button-01" type="button" value="type3" name="type3"/>
+        <input id="addType4" class="button-01" type="button" value="type0" name="type4"/>
+    </div>
+    <!--type btn e-->
+
+    <div class="page-bookPagePosition-list vv-borderSide">
+        <!--<h2 class="title-01 page-bookPagePosition-title">透明按钮功能</h2>-->
+        <div class="page-bookPagePosition-title-tips">&nbsp;</div>
+
+
+        <div class="search">
+            <form action="##" method="get">
+                <input class="search-value" value="" placeholder="请输入关键字" type="text" name="keyword">
+                <input class="search-submit" value="搜索" type="submit" name="search">
+            </form>
+        </div>
+
+        <div class="page-book">
+            <table class="B-ui-table B-ui-table-single B-ui-table-striped">
+                <thead>
+                <tr>
+                    <th>
+                        <div class="B-ui-table-ext">ID</div>
+                    </th>
+                    <th>
+                        <div class="B-ui-table-ext">素材名</div>
+                    </th>
+                    <th>
+                        <div class="B-ui-table-ext">素材文件</div>
+                    </th>
+
+                </tr>
+                </thead>
+                <tbody id="vv-search">
+
+
+                <!--内部循环-->
+
+
+                </tbody>
+            </table>
+        </div>
+        <!-- .page-book end -->
+
+        <div class="B-ui-page" id="pageporxy">
+
+            <a id="pagePrev" href="javascript:;" class="B-ui-page-prev">上一页</a>
+
+
+            <!--插入分页-->
+
+
+            <a id="pageNext" href="javascript:;" class="B-ui-page-next">下一页</a>
+
+
+            <!--插入页目明细-->
+
+
+            <span id="turnto" class="B-ui-page-which"><input name="turnTo" value="" type="text"></span>
+            <!--<input class="search-submit" value="跳转" type="submit" name="turnToBtn">-->
+            <a id="inputTo" name="turnToBtn" class="B-ui-page-info B-ui-page-goto" href="javascript:;">跳转</a>
+
+        </div>
+
+
+    </div>
+    <!-- .page-bookPagePosition-list end -->
+    <div class="page-bookPagePosition-list  vv-borderSide B-video-ext" id="v4" style="display:none;clear: both; ">
+        <video src="./imgs/a0.mp4" width="160px" height="120px" controls id="videoCtrl"></video>
+    </div>
+
+</div>
+
+
+</bdoy>
+</html>

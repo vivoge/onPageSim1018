@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="hs" style="width: 500px;height: 500px;border: 1px solid black;"></div>
+<script>
+    function posXY(event){
+        event = event || window.event;
+        var posX = event.pageX || (event.clientX +
+                (document.documentElement.scrollLeft || document.body.scrollLeft));
+        var posY = event.pageY || (event.clientY +
+                (document.documentElement.scrollTop || document.body.scrollTop));
+        return {x:posX, y:posY};
+    }
+    function onBeforeSelect(ele){
+        if(!document.getElementById("selContainer")){
+            selectDiv = document.createElement('div');
+
+            selectDiv.style.cssText= "position:absolute;width:0px;height:0px;font-size:0px;margin:0px;padding:0px;border:1px solid #0099FF;background-color:#C3D5ED;z-index:1000;filter:alpha(opacity:60);opacity:0.6;display:none;";
+
+            selectDiv.id = "selContainer";
+            ele.appendChild(selectDiv);
+        }else{
+            selectDiv = document.getElementById("selContainer");
+        }
+    }
+    var hs = document.querySelector('.hs');
+    var startX=null,startY = null;
+    var selectDiv = null;
+    var isSelect =null;
+
+    hs.addEventListener('mousedown',function(e){
+        var evt =e||window.event;
+
+        onBeforeSelect(this);
+
+        startX = posXY(evt).x;
+        startY = posXY(evt).y;
+
+        isSelect = true;
+        if (evt.stopPropagation) evt.stopPropagation(); else evt.cancelBubble = true;
+        if (evt.preventDefault)  evt.preventDefault();  else evt.returnValue = false;
+    },false);
+
+
+    hs.addEventListener('mousemove',function(e){
+      var evt =e||window.event;
+        var posX =posXY(evt).x;
+        var posY =posXY(evt).y;
+
+
+       if(isSelect){
+           if(selectDiv.style.display == "none"){
+               selectDiv.style.display = "block";
+           }
+           selectDiv.style.left = Math.min(posX, startX)+'px';
+           selectDiv.style.top = Math.min(posY, startY)+'px';
+           selectDiv.style.width = Math.abs(posX - startX)+'px';
+           selectDiv.style.height = Math.abs(posY - startY)+'px';
+       }
+
+        if (evt.stopPropagation) evt.stopPropagation(); else evt.cancelBubble = true;
+        if (evt.preventDefault)  evt.preventDefault();  else evt.returnValue = false;
+    },false);
+
+
+
+    hs.addEventListener('mouseup',function(){
+        if(selectDiv){
+            selectDiv.style.display = "none";
+        }
+        isSelect = false;
+    },false);
+
+
+</script>
+</body>
+</html>
